@@ -7,7 +7,7 @@ class User extends Admin_Controller
 {
 	public function index()
 	{
-		$this->render('admin/users/index', array('title' => 'Users'));
+		$this->render('admin/users/index', array('title' => 'User List'));
 	}
 
 

@@ -1,9 +1,11 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Migration_create_products_table extends CI_Migration {
-    public function up() {
+class Migration_create_products_table extends CI_Migration
+{
+	public function up()
+	{
 		$this->dbforge->add_field(array(
 			'id' => array(
 				'type'           => 'INT',
@@ -12,14 +14,14 @@ class Migration_create_products_table extends CI_Migration {
 			),
 			'name' => array(
 				'type'       => 'VARCHAR',
-				'constraint' => 200,				
+				'constraint' => 200,
 			),
 			'description' => array(
 				'type'      => 'TEXT',
 				'null'		=> TRUE,
 			),
 			'price' => array(
-				'type' 		=> 'DECIMAL',	
+				'type' 		=> 'DECIMAL',
 			),
 			'currency' => array(
 				'type' 		=> 'VARCHAR',
@@ -30,17 +32,21 @@ class Migration_create_products_table extends CI_Migration {
 				'type' 		=> 'TINYINT',
 				'default' 	=> 0,
 			),
+			'image' => array(
+				'type'       => 'VARCHAR',
+				'constraint' => 255,
+				'null'       => TRUE,
+			),
 			'created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP',
-			'updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP',			
+			'updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP',
 		));
 
-		$this->dbforge->add_key('id', TRUE);		
+		$this->dbforge->add_key('id', TRUE);
 		$this->dbforge->create_table('products', TRUE);
-
 	}
 
-    public function down() {
+	public function down()
+	{
 		$this->dbforge->drop_table('products', TRUE);
 	}
-
 }

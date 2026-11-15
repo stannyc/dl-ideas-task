@@ -1,27 +1,29 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Migration_create_users_table extends CI_Migration {
-    public function up() {
+class Migration_create_users_table extends CI_Migration
+{
+	public function up()
+	{
 
 		$this->dbforge->add_field(array(
 			'id' => array(
-				'type' => 'INT',				
+				'type' => 'INT',
 				'unsigned' => TRUE,
 				'auto_increment' => TRUE
 			),
 			'email' => array(
 				'type' => 'VARCHAR',
 				'constraint' => 100,
-				'unique' => TRUE,				
+				'unique' => TRUE,
 			),
 			'name' => array(
 				'type' => 'VARCHAR',
-				'constraint' => 150,				
+				'constraint' => 150,
 			),
 			'password_hash' => array(
-				'type' => 'VARCHAR',				
+				'type' => 'VARCHAR',
 				'constraint' => 255
 			),
 			'role' => array(
@@ -33,16 +35,21 @@ class Migration_create_users_table extends CI_Migration {
 				'type' => 'TINYINT',
 				'default' => 1
 			),
+			'avatar' => array(
+				'type'       => 'VARCHAR',
+				'constraint' => 255,
+				'null'       => TRUE,
+			),
 			'created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP',
 			'updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
 		));
 
 		$this->dbforge->add_key('id', TRUE);
 		$this->dbforge->create_table('users');
-
 	}
 
-    public function down() {
+	public function down()
+	{
 		$this->dbforge->drop_table('users', TRUE);
 	}
 }

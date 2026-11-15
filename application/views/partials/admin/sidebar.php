@@ -32,7 +32,7 @@
 					</a>					
 				</li>
 				<li class="nav-item">
-					<a href="#" class="nav-link">
+					<a href="#" class="nav-link <?=  nav_active('user') ?>">
 						<i class="nav-icon bi bi-people"></i>
 						<p>
 							Users
@@ -55,7 +55,7 @@
 					</ul>
 				</li>				
 				<li class="nav-item">
-					<a href="#" class="nav-link">
+					<a href="#" class="nav-link <?=  nav_active('product') ?>">
 						<i class="nav-icon bi bi-box-seam-fill"></i>
 						<p>
 							Product
@@ -78,7 +78,22 @@
 					</ul>
 				</li>
 			
-
+				<li class="nav-item">
+					<a href="/admin/invoices" class="nav-link <?=  nav_active('invoices') ?> ?>">
+						<i class="nav-icon bi bi-coin"></i>
+						<p>
+							Invoices
+						</p>
+					</a>					
+				</li>		
+				<li class="nav-item">
+					<a href="/admin/receipts" class="nav-link <?=  nav_active('receipts') ?> ?>">
+						<i class="nav-icon bi bi-receipt"></i>
+						<p>
+							Receipts						
+						</p>
+					</a>					
+				</li>		
 			</ul>
 			<!--end::Sidebar Menu-->
 	

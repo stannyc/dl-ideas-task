@@ -6,6 +6,11 @@ application/cache/*
 application/cache/sessions/*
 !application/cache/sessions/.gitkeep
 
+public/uploads/avatars/*
+public/uploads/products/*
+!public/uploads/avatars/.gitkeep
+!public/uploads/products/.gitkeep
+
 application/logs/*
 !application/logs/index.html
 

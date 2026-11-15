@@ -2,7 +2,7 @@
 	<!--begin::Sidebar Brand-->
 	<div class="sidebar-brand">
 		<!--begin::Brand Link-->
-		<a href="/admin" class="brand-link">
+		<a href="/home" class="brand-link">
 			<!--begin::Brand Image-->
 			
 			<!--end::Brand Image-->
@@ -24,7 +24,7 @@
 				id="navigation">
 				<li class="nav-item">
 					<a href="/home" class="nav-link <?=  nav_active('dashboard') ?> ?>">
-						<i class="nav-icon bi bi-speedometer"></i>
+						<i class="nav-icon bi bi-shop-window"></i>
 						<p>
 							Shop							
 						</p>
@@ -32,7 +32,7 @@
 				</li>
 				<li class="nav-item">
 					<a href="/invoices" class="nav-link <?=  nav_active('dashboard') ?> ?>">
-						<i class="nav-icon bi bi-speedometer"></i>
+						<i class="nav-icon bi bi-coin"></i>
 						<p>
 							Invoices
 						</p>
@@ -40,13 +40,12 @@
 				</li>		
 				<li class="nav-item">
 					<a href="/receipts" class="nav-link <?=  nav_active('dashboard') ?> ?>">
-						<i class="nav-icon bi bi-speedometer"></i>
+						<i class="nav-icon bi bi-receipt"></i>
 						<p>
 							Receipts						
 						</p>
 					</a>					
-				</li>			
-
+				</li>
 			</ul>
 			<!--end::Sidebar Menu-->	
 		</nav>
