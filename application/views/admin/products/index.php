@@ -2,9 +2,9 @@
 <div class="container-fluid">
 	<!--begin::Row-->
 	<div class="row  g-4 mb-4">
-		<?php for ($i = 1; $i <= 10; $i++) {
+		<?php foreach($products as $product) {
 
-			$this->load->view('shared/product_tile', array('price' => $i))
+			$this->load->view('shared/product_tile', array('product' => $product))
 
 		?>
 			<!-- <div class="col">
@@ -69,52 +69,3 @@
 <!--end::Container-->
 
 
-<!-- delete confirm modal -->
-<div
-	class="modal fade"
-	id="deleteProductModal"
-	tabindex="-1"
-	aria-labelledby="deleteProductModalLabel"
-	aria-hidden="true">
-	<div class="modal-dialog modal-dialog-scrollable">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h1 class="modal-title fs-5" id="deleteProductModalLabel">
-					Delete Product
-				</h1>
-				<button
-					type="button"
-					class="btn-close"
-					data-bs-dismiss="modal"
-					aria-label="Close"></button>
-			</div>
-			<div class="modal-body">
-				<p>
-					With <code>.modal-dialog-scrollable</code> the body scrolls instead of
-					the page, so the header and footer stay put.
-				</p>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-					posuere erat a ante.
-				</p>
-				<p>
-					Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-					dapibus ac facilisis in.
-				</p>
-				<p>
-					Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus
-					magna.
-				</p>
-				<p class="mb-0">
-					Donec ullamcorper nulla non metus auctor fringilla. Nullam quis risus
-					eget urna mollis.
-				</p>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-					Close
-				</button>
-			</div>
-		</div>
-	</div>
-</div>

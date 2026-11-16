@@ -80,6 +80,7 @@ $this->load->view('partials/head')
 	<!--end::Color Mode Toggle-->
 
 	<!--end::Script-->
+	<?php $this->load->view('partials/flash') ?>
 </body>
 <!--end::Body-->
 
