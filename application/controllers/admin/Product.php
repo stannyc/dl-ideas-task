@@ -15,8 +15,10 @@ class Product extends Admin_Controller
 
 	public function index()
 	{
-		$products = $this->product_model->paginate();
-		$this->render('admin/products/index', array('title' => 'Product List', 'products' => $products));
+		$data = $this->product_model->paginate();
+		$products = $data['items'];
+		$pagination = $data['pagination'];
+		$this->render('admin/products/index', array('title' => 'Product List', 'products' => $products, 'pagination' => $pagination));
 	}
 
 
