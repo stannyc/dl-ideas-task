@@ -15,7 +15,7 @@ class Auth
 	{
 		if($this->user === FALSE){
 			$id = $this->CI->session->userdata('user_id');
-			$this->user = $id ? $this->ci->db->get_where('users', array('id' => $id, 'is_active' => 1))->row() : NULL;
+			$this->user = $id ? $this->CI->db->get_where('users', array('id' => $id, 'is_active' => 1))->row() : NULL;
 		}
 		return $this->user;
 	}

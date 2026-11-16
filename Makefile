@@ -43,3 +43,7 @@ migrate-down:
 migration-version:
 	@test -n "$(version)" || (echo "Usage: make migration-version version=20261113180000"; exit 1)
 	docker compose exec app php public/index.php migrate version "$(version)"
+
+
+seed-admin:
+	docker compose exec app php public/index.php seed
