@@ -9,4 +9,10 @@ class Receipts extends User_Controller
 	{
 		$this->render('receipts/index', array('title' => 'Receipts'));
 	}
+
+	public function detail($id)
+	{
+		$this->render('shared/receipt_detail', array('title' => 'Receipt Detail'));
+	}
+
 }

@@ -35,14 +35,12 @@
         									<option value="author">Author</option>
         									<option value="subscriber">Subscriber</option>
         								</select>
-        								<button
-        									type="button"
+        								<a
+											href="/admin/users/form"
         									class="btn btn-sm btn-primary"
-        									data-bs-toggle="modal"
-        									data-bs-target="#modal-add-user">
         									<i class="bi bi-person-plus-fill me-1" aria-hidden="true"> </i>
         									New user
-        								</button>
+        								</a>
         							</div>
         						</div>
         					</div>
@@ -63,339 +61,55 @@
         								</tr>
         							</thead>
         							<tbody>
-        								<tr>
-        									<td>
-        										<div class="d-flex align-items-center">
-        											<img
-        												src="./assets/img/user1-128x128.jpg"
-        												alt=""
-        												class="img-size-32 rounded-circle me-2" />
-        											<span class="fw-medium">Alexander Pierce</span>
-        										</div>
-        									</td>
-        									<td>alexander.pierce@example.com</td>
-        									<td>
-        										<span class="badge text-bg-danger"> Administrator </span>
-        									</td>
-        									<td>
-        										<span class="badge text-bg-success">Active</span>
-        									</td>
-        									<td>Mar 12, 2025</td>
-        									<td class="text-end">
-        										<div class="btn-group btn-group-sm">
-        											<button
-        												type="button"
-        												class="btn btn-outline-secondary"
-        												aria-label="Edit Alexander Pierce">
-        												<i class="bi bi-pencil" aria-hidden="true"> </i>
-        											</button>
-        											<button
-        												type="button"
-        												class="btn btn-outline-danger"
-        												data-bs-toggle="modal"
-        												data-bs-target="#modal-delete-user"
-        												aria-label="Delete Alexander Pierce">
-        												<i class="bi bi-trash" aria-hidden="true"> </i>
-        											</button>
-        										</div>
-        									</td>
-        								</tr>
-        								<tr>
-        									<td>
-        										<div class="d-flex align-items-center">
-        											<img
-        												src="./assets/img/user3-128x128.jpg"
-        												alt=""
-        												class="img-size-32 rounded-circle me-2" />
-        											<span class="fw-medium">Sarah Bullock</span>
-        										</div>
-        									</td>
-        									<td>sarah.bullock@example.com</td>
-        									<td>
-        										<span class="badge text-bg-primary">Editor</span>
-        									</td>
-        									<td>
-        										<span class="badge text-bg-success">Active</span>
-        									</td>
-        									<td>Apr 3, 2025</td>
-        									<td class="text-end">
-        										<div class="btn-group btn-group-sm">
-        											<button
-        												type="button"
-        												class="btn btn-outline-secondary"
-        												aria-label="Edit Sarah Bullock">
-        												<i class="bi bi-pencil" aria-hidden="true"> </i>
-        											</button>
-        											<button
-        												type="button"
-        												class="btn btn-outline-danger"
-        												data-bs-toggle="modal"
-        												data-bs-target="#modal-delete-user"
-        												aria-label="Delete Sarah Bullock">
-        												<i class="bi bi-trash" aria-hidden="true"> </i>
-        											</button>
-        										</div>
-        									</td>
-        								</tr>
-        								<tr>
-        									<td>
-        										<div class="d-flex align-items-center">
-        											<img
-        												src="./assets/img/user6-128x128.jpg"
-        												alt=""
-        												class="img-size-32 rounded-circle me-2" />
-        											<span class="fw-medium">Daniel Cooper</span>
-        										</div>
-        									</td>
-        									<td>daniel.cooper@example.com</td>
-        									<td>
-        										<span class="badge text-bg-info">Author</span>
-        									</td>
-        									<td>
-        										<span class="badge text-bg-warning">Pending</span>
-        									</td>
-        									<td>Apr 28, 2025</td>
-        									<td class="text-end">
-        										<div class="btn-group btn-group-sm">
-        											<button
-        												type="button"
-        												class="btn btn-outline-secondary"
-        												aria-label="Edit Daniel Cooper">
-        												<i class="bi bi-pencil" aria-hidden="true"> </i>
-        											</button>
-        											<button
-        												type="button"
-        												class="btn btn-outline-danger"
-        												data-bs-toggle="modal"
-        												data-bs-target="#modal-delete-user"
-        												aria-label="Delete Daniel Cooper">
-        												<i class="bi bi-trash" aria-hidden="true"> </i>
-        											</button>
-        										</div>
-        									</td>
-        								</tr>
-        								<tr>
-        									<td>
-        										<div class="d-flex align-items-center">
-        											<img
-        												src="./assets/img/user4-128x128.jpg"
-        												alt=""
-        												class="img-size-32 rounded-circle me-2" />
-        											<span class="fw-medium">Nora Vans</span>
-        										</div>
-        									</td>
-        									<td>nora.vans@example.com</td>
-        									<td>
-        										<span class="badge text-bg-primary">Editor</span>
-        									</td>
-        									<td>
-        										<span class="badge text-bg-success">Active</span>
-        									</td>
-        									<td>May 9, 2025</td>
-        									<td class="text-end">
-        										<div class="btn-group btn-group-sm">
-        											<button
-        												type="button"
-        												class="btn btn-outline-secondary"
-        												aria-label="Edit Nora Vans">
-        												<i class="bi bi-pencil" aria-hidden="true"> </i>
-        											</button>
-        											<button
-        												type="button"
-        												class="btn btn-outline-danger"
-        												data-bs-toggle="modal"
-        												data-bs-target="#modal-delete-user"
-        												aria-label="Delete Nora Vans">
-        												<i class="bi bi-trash" aria-hidden="true"> </i>
-        											</button>
-        										</div>
-        									</td>
-        								</tr>
-        								<tr>
-        									<td>
-        										<div class="d-flex align-items-center">
-        											<img
-        												src="./assets/img/user7-128x128.jpg"
-        												alt=""
-        												class="img-size-32 rounded-circle me-2" />
-        											<span class="fw-medium">Jane Holland</span>
-        										</div>
-        									</td>
-        									<td>jane.holland@example.com</td>
-        									<td>
-        										<span class="badge text-bg-secondary"> Subscriber </span>
-        									</td>
-        									<td>
-        										<span class="badge text-bg-success">Active</span>
-        									</td>
-        									<td>May 21, 2025</td>
-        									<td class="text-end">
-        										<div class="btn-group btn-group-sm">
-        											<button
-        												type="button"
-        												class="btn btn-outline-secondary"
-        												aria-label="Edit Jane Holland">
-        												<i class="bi bi-pencil" aria-hidden="true"> </i>
-        											</button>
-        											<button
-        												type="button"
-        												class="btn btn-outline-danger"
-        												data-bs-toggle="modal"
-        												data-bs-target="#modal-delete-user"
-        												aria-label="Delete Jane Holland">
-        												<i class="bi bi-trash" aria-hidden="true"> </i>
-        											</button>
-        										</div>
-        									</td>
-        								</tr>
-        								<tr>
-        									<td>
-        										<div class="d-flex align-items-center">
-        											<img
-        												src="./assets/img/user8-128x128.jpg"
-        												alt=""
-        												class="img-size-32 rounded-circle me-2" />
-        											<span class="fw-medium">Kenneth Miles</span>
-        										</div>
-        									</td>
-        									<td>kenneth.miles@example.com</td>
-        									<td>
-        										<span class="badge text-bg-info">Author</span>
-        									</td>
-        									<td>
-        										<span class="badge text-bg-danger"> Suspended </span>
-        									</td>
-        									<td>Jun 2, 2025</td>
-        									<td class="text-end">
-        										<div class="btn-group btn-group-sm">
-        											<button
-        												type="button"
-        												class="btn btn-outline-secondary"
-        												aria-label="Edit Kenneth Miles">
-        												<i class="bi bi-pencil" aria-hidden="true"> </i>
-        											</button>
-        											<button
-        												type="button"
-        												class="btn btn-outline-danger"
-        												data-bs-toggle="modal"
-        												data-bs-target="#modal-delete-user"
-        												aria-label="Delete Kenneth Miles">
-        												<i class="bi bi-trash" aria-hidden="true"> </i>
-        											</button>
-        										</div>
-        									</td>
-        								</tr>
-        								<tr>
-        									<td>
-        										<div class="d-flex align-items-center">
-        											<img
-        												src="./assets/img/user2-160x160.jpg"
-        												alt=""
-        												class="img-size-32 rounded-circle me-2" />
-        											<span class="fw-medium"> Nadia Carmichael </span>
-        										</div>
-        									</td>
-        									<td>nadia.carmichael@example.com</td>
-        									<td>
-        										<span class="badge text-bg-secondary"> Subscriber </span>
-        									</td>
-        									<td>
-        										<span class="badge text-bg-success">Active</span>
-        									</td>
-        									<td>Jun 15, 2025</td>
-        									<td class="text-end">
-        										<div class="btn-group btn-group-sm">
-        											<button
-        												type="button"
-        												class="btn btn-outline-secondary"
-        												aria-label="Edit Nadia Carmichael">
-        												<i class="bi bi-pencil" aria-hidden="true"> </i>
-        											</button>
-        											<button
-        												type="button"
-        												class="btn btn-outline-danger"
-        												data-bs-toggle="modal"
-        												data-bs-target="#modal-delete-user"
-        												aria-label="Delete Nadia Carmichael">
-        												<i class="bi bi-trash" aria-hidden="true"> </i>
-        											</button>
-        										</div>
-        									</td>
-        								</tr>
-        								<tr>
-        									<td>
-        										<div class="d-flex align-items-center">
-        											<img
-        												src="./assets/img/user5-128x128.jpg"
-        												alt=""
-        												class="img-size-32 rounded-circle me-2" />
-        											<span class="fw-medium">Marcus Reed</span>
-        										</div>
-        									</td>
-        									<td>marcus.reed@example.com</td>
-        									<td>
-        										<span class="badge text-bg-primary">Editor</span>
-        									</td>
-        									<td>
-        										<span class="badge text-bg-warning">Pending</span>
-        									</td>
-        									<td>Jun 24, 2025</td>
-        									<td class="text-end">
-        										<div class="btn-group btn-group-sm">
-        											<button
-        												type="button"
-        												class="btn btn-outline-secondary"
-        												aria-label="Edit Marcus Reed">
-        												<i class="bi bi-pencil" aria-hidden="true"> </i>
-        											</button>
-        											<button
-        												type="button"
-        												class="btn btn-outline-danger"
-        												data-bs-toggle="modal"
-        												data-bs-target="#modal-delete-user"
-        												aria-label="Delete Marcus Reed">
-        												<i class="bi bi-trash" aria-hidden="true"> </i>
-        											</button>
-        										</div>
-        									</td>
-        								</tr>
-        								<tr>
-        									<td>
-        										<div class="d-flex align-items-center">
-        											<img
-        												src="./assets/img/avatar5.png"
-        												alt=""
-        												class="img-size-32 rounded-circle me-2" />
-        											<span class="fw-medium">Elena Weber</span>
-        										</div>
-        									</td>
-        									<td>elena.weber@example.com</td>
-        									<td>
-        										<span class="badge text-bg-secondary"> Subscriber </span>
-        									</td>
-        									<td>
-        										<span class="badge text-bg-success">Active</span>
-        									</td>
-        									<td>Jul 1, 2025</td>
-        									<td class="text-end">
-        										<div class="btn-group btn-group-sm">
-        											<button
-        												type="button"
-        												class="btn btn-outline-secondary"
-        												aria-label="Edit Elena Weber">
-        												<i class="bi bi-pencil" aria-hidden="true"> </i>
-        											</button>
-        											<button
-        												type="button"
-        												class="btn btn-outline-danger"
-        												data-bs-toggle="modal"
-        												data-bs-target="#modal-delete-user"
-        												aria-label="Delete Elena Weber">
-        												<i class="bi bi-trash" aria-hidden="true"> </i>
-        											</button>
-        										</div>
-        									</td>
-        								</tr>
+        								<?php foreach ($users as $user) { ?>
+        									<tr>
+        										<td>
+        											<div class="d-flex align-items-center">
+        												<?php if (! empty($user->avatar)): ?>
+        													<img src="<?= base_url('uploads/avatars/' . $user->avatar) ?>"
+        														alt=""
+        														class="img-size-32 rounded-circle me-2"
+        														style="object-fit: cover;" />
+        												<?php else: ?>
+        													<span class="d-inline-flex align-items-center justify-content-center rounded-circle bg-secondary-subtle text-secondary me-2"
+        														style="width: 32px; height: 32px;" aria-hidden="true">
+        														<i class="bi bi-person-fill"></i>
+        													</span>
+        												<?php endif; ?>
+        												<span class="fw-medium"><?= html_escape($user->name) ?></span>
+        											</div>
+        										</td>
+        										<td><?= $user->email ?></td>
+        										<td>
+        											<span class="badge <?= $user->role == 'admin' ? 'text-bg-danger' : 'text-bg-success' ?>"> <?= $user->role ?> </span>
+        										</td>
+        										<td>
+        											<span class="badge <?= $user->is_active == 1 ? 'text-bg-success' : 'text-bg-secondary' ?>"><?= $user->is_active == 1 ? 'Active' : 'Inactive' ?></span>
+        										</td>
+        										<td><?= $user->created_at ?></td>
+        										<td class="text-end">
+        											<div class="btn-group btn-group-sm">
+        												<a
+        													href="/admin/users/form/<?= $user->id ?>"
+        													type="button"
+        													class="btn btn-outline-secondary"
+        													aria-label="Edit Alexander Pierce">
+        													<i class="bi bi-pencil" aria-hidden="true"> </i>
+        												</a>
+        												<button type="button"
+        													class="btn btn-sm <?= $user->is_active ? 'btn-outline-danger' : 'btn-outline-success' ?>"
+        													title="<?= $user->is_active ? 'Deactivate' : 'Activate' ?>"
+        													data-bs-toggle="modal" data-bs-target="#modal-toggle-user"
+        													data-name="<?= html_escape($user->name) ?>"
+        													data-active="<?= $user->is_active ? '1' : '0' ?>"
+        													data-action="<?= site_url('admin/users/toggle_active/' . $user->id) ?>"
+        													<?= (int) $user->id === (int) $current_user->id ? 'disabled' : '' ?>>
+        													<i class="bi <?= $user->is_active ? 'bi-person-x' : 'bi-person-check' ?>"></i>
+        												</button>
+        											</div>
+        										</td>
+        									</tr>
+        								<?php } ?>
         							</tbody>
         						</table>
         					</div>
@@ -439,110 +153,55 @@
         	</div>
         	<!--end::Row-->
 
-        	<!--begin::Add User Modal-->
-        	<div
-        		class="modal fade"
-        		id="modal-add-user"
-        		tabindex="-1"
-        		aria-labelledby="modal-add-user-label"
-        		aria-hidden="true">
-        		<div class="modal-dialog">
-        			<div class="modal-content">
-        				<form>
-        					<div class="modal-header">
-        						<h5 class="modal-title" id="modal-add-user-label">Add new user</h5>
-        						<button
-        							type="button"
-        							class="btn-close"
-        							data-bs-dismiss="modal"
-        							aria-label="Close"></button>
-        					</div>
-        					<div class="modal-body">
-        						<div class="mb-3">
-        							<label for="new-user-name" class="form-label"> Full name </label>
-        							<input
-        								type="text"
-        								class="form-control"
-        								id="new-user-name"
-        								placeholder="e.g. Jane Doe"
-        								required />
-        						</div>
-        						<div class="mb-3">
-        							<label for="new-user-email" class="form-label"> Email address </label>
-        							<input
-        								type="email"
-        								class="form-control"
-        								id="new-user-email"
-        								placeholder="name@example.com"
-        								required />
-        							<div class="form-text">The invitation will be sent to this address.</div>
-        						</div>
-        						<div class="mb-3">
-        							<label for="new-user-role" class="form-label"> Role </label>
-        							<select id="new-user-role" class="form-select">
-        								<option selected>Subscriber</option>
-        								<option>Author</option>
-        								<option>Editor</option>
-        								<option>Administrator</option>
-        							</select>
-        						</div>
-        						<div class="form-check">
-        							<input
-        								class="form-check-input"
-        								type="checkbox"
-        								id="new-user-welcome"
-        								checked />
-        							<label class="form-check-label" for="new-user-welcome">
-        								Send a welcome email with login details
-        							</label>
-        						</div>
-        					</div>
-        					<div class="modal-footer">
-        						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-        							Cancel
-        						</button>
-        						<button type="submit" class="btn btn-primary">Create user</button>
-        					</div>
-        				</form>
-        			</div>
-        		</div>
-        	</div>
-        	<!--end::Add User Modal-->
 
         	<!--begin::Delete User Modal-->
-        	<div
-        		class="modal fade"
-        		id="modal-delete-user"
-        		tabindex="-1"
-        		aria-labelledby="modal-delete-user-label"
-        		aria-hidden="true">
+        	<div class="modal fade" id="modal-toggle-user" tabindex="-1" aria-labelledby="modal-toggle-user-label" aria-hidden="true">
         		<div class="modal-dialog">
         			<div class="modal-content">
+        				<?= form_open('', array('id' => 'form-toggle-user')) ?>
         				<div class="modal-header">
-        					<h5 class="modal-title" id="modal-delete-user-label">Delete user</h5>
-        					<button
-        						type="button"
-        						class="btn-close"
-        						data-bs-dismiss="modal"
-        						aria-label="Close"></button>
+        					<h5 class="modal-title" id="modal-toggle-user-label"></h5>
+        					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         				</div>
         				<div class="modal-body">
-        					<p class="mb-0">
-        						Are you sure you want to delete this user? All content owned by the account
-        						will be reassigned to the site administrator. This action cannot be undone.
-        					</p>
+        					<p class="mb-0 js-message"></p>
         				</div>
         				<div class="modal-footer">
-        					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-        						Cancel
-        					</button>
-        					<button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-        						Delete user
-        					</button>
+        					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        					<button type="submit" class="btn js-confirm"></button>
         				</div>
+        				<?= form_close() ?>
         			</div>
         		</div>
         	</div>
         	<!--end::Delete User Modal-->
         </div>
         <!--end::Container-->
+        <script>
+        	document.addEventListener('DOMContentLoaded', function() {
+        		const modal = document.getElementById('modal-toggle-user');
+
+        		modal.addEventListener('show.bs.modal', function(event) {
+        			const btn = event.relatedTarget;
+        			const name = btn.dataset.name;
+        			const isActive = btn.dataset.active === '1';
+
+        			document.getElementById('form-toggle-user').action = btn.dataset.action;
+
+        			modal.querySelector('.modal-title').textContent = isActive ? 'Deactivate user' : 'Activate user';
+
+        			const message = modal.querySelector('.js-message');
+        			message.textContent = '';
+        			message.append(isActive ? 'Deactivate ' : 'Activate ');
+        			const strong = document.createElement('strong');
+        			strong.textContent = name;
+        			message.append(strong, isActive ?
+        				'? They will no longer be able to sign in. Their orders, invoices and receipts are kept.' :
+        				'? They will be able to sign in again.');
+
+        			const confirm = modal.querySelector('.js-confirm');
+        			confirm.textContent = isActive ? 'Deactivate' : 'Activate';
+        			confirm.className = 'btn js-confirm ' + (isActive ? 'btn-danger' : 'btn-success');
+        		});
+        	});
+        </script>

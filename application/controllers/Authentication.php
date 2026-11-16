@@ -6,7 +6,7 @@ class Authentication extends CI_Controller
 
 	public function login_form()
 	{
-		echo "Login Form";
+		$this->load->view('auth/login');
 	}
 
 
@@ -19,7 +19,7 @@ class Authentication extends CI_Controller
 		$this->form_validation->set_rules('password', 'Password', 'required');
 
 		if ($this->form_validation->run() === FALSE) {
-			return $this->login();
+			return $this->login_form();
 		}
 
 		$email    = strtolower($this->input->post('email'));
@@ -43,6 +43,20 @@ class Authentication extends CI_Controller
 			redirect($intended);
 		}
 
-		redirect($user->role === 'admin' ? 'admin' : 'user');
+		redirect($user->role === 'admin' ? 'admin' : 'home');
+	}
+
+
+	public function logout()
+	{
+	
+		if ($this->input->method() !== 'post') {
+			show_error('Method Not Allowed', 405);
+		}
+
+		$this->session->unset_userdata(array('user_id', 'intended_url'));
+		$this->session->sess_destroy();
+
+		redirect('/');
 	}
 }

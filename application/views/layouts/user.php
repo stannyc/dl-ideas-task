@@ -7,7 +7,7 @@ $this->load->view('partials/head')
 <!--end::Head-->
 <!--begin::Body-->
 
-<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+<body class="fixed-header layout-fixed sidebar-expand-lg bg-body-tertiary">
 	<!--begin::App Wrapper-->
 	<div class="app-wrapper">
 		<!--begin::Header-->
@@ -26,9 +26,7 @@ $this->load->view('partials/head')
 				<div class="container-fluid">
 					<!--begin::Row-->
 					<div class="row">
-						<div class="col-sm-6">
-							<h1 class="mb-0 fs-3"><?=  $title ?></h1>
-						</div>
+			
 						<!-- <div class="col-sm-6">
 							<nav aria-label="breadcrumb">
 								<ol class="breadcrumb float-sm-end">

@@ -2,7 +2,9 @@
 	<!--begin::Container-->
 	<div class="container-fluid">
 	
-
+				<div class="col-sm-6">
+					<h1 class="mb-0 fs-3"><?= $title ?></h1>
+				</div>
 		<!--begin::Navbar Search-->
 	<!-- 	<form
 			class="navbar-search d-none d-xl-block ms-3"
@@ -209,28 +211,17 @@
 						</p>
 					</li>
 					<!--end::User Image-->
-					<!--begin::Menu Body-->
-					<li class="user-body">
-						<!--begin::Row-->
-						<div class="row">
-							<div class="col-4 text-center">
-								<a href="#">Followers</a>
-							</div>
-							<div class="col-4 text-center">
-								<a href="#">Sales</a>
-							</div>
-							<div class="col-4 text-center">
-								<a href="#">Friends</a>
-							</div>
-						</div>
-						<!--end::Row-->
-					</li>
-					<!--end::Menu Body-->
+			
 					<!--begin::Menu Footer-->
 					<li class="user-footer">
-						<a href="#" class="btn btn-outline-secondary">Profile</a>
-						<a href="#" class="btn btn-outline-danger float-end">Sign out</a>
-					</li>
+								<!-- <a href="#" class="btn btn-outline-secondary">Profile</a> -->
+								<?= form_open('logout', array('class' => 'd-inline')) ?>
+								<!-- <a type="submit" class="dropdown-item">
+									<i class="bi bi-box-arrow-right me-2"></i>Sign out
+								</a> -->
+								<button type="submit" class="btn btn-outline-danger float-end">Sign out</button>
+								<?= form_close() ?>
+							</li>
 					<!--end::Menu Footer-->
 				</ul>
 			</li>

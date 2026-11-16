@@ -41,13 +41,13 @@
 					</a>
 					<ul class="nav nav-treeview">
 						<li class="nav-item">
-							<a href="/admin/user" class="nav-link">
+							<a href="/admin/users" class="nav-link">
 								<i class="nav-icon bi bi-circle"></i>
 								<p>List</p>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="/admin/user/form" class="nav-link">
+							<a href="/admin/users/form" class="nav-link">
 								<i class="nav-icon bi bi-circle"></i>
 								<p>Form</p>
 							</a>

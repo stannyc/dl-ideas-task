@@ -78,29 +78,34 @@
 							<span class="d-inline-flex align-items-center justify-content-center rounded-circle bg-secondary text-white img-size-32" style="height: 32px;">
 								<i class="bi bi-person-fill fs-4"></i>
 							</span>
-							<span class="d-none d-xl-inline">Alexander Pierce</span>
+							<span class="d-none d-xl-inline"><?= $current_user->name ?></span>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
 							<!--begin::User Image-->
 							<li class="user-header text-bg-primary">
 								<span class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white text-secondary img-size-50" style="height: 50px;">
-								<i class="bi bi-person-fill fs-4"></i>
-							</span>
+									<i class="bi bi-person-fill fs-4"></i>
+								</span>
 								<!-- <img
 									src="./assets/img/user2-160x160.jpg"
 									class="rounded-circle shadow"
 									alt="Alexander Pierce" /> -->
 								<p>
-									Alexander Pierce - Web Developer
-									<small>Member since Nov. 2023</small>
+									<?= $current_user->name ?>
+									
 								</p>
 							</li>
 							<!--end::User Image-->
 
 							<!--begin::Menu Footer-->
 							<li class="user-footer">
-								<a href="#" class="btn btn-outline-secondary">Profile</a>
-								<a href="#" class="btn btn-outline-danger float-end">Sign out</a>
+								<!-- <a href="#" class="btn btn-outline-secondary">Profile</a> -->
+								<?= form_open('logout', array('class' => 'd-inline')) ?>
+								<!-- <a type="submit" class="dropdown-item">
+									<i class="bi bi-box-arrow-right me-2"></i>Sign out
+								</a> -->
+								<button type="submit" class="btn btn-outline-danger float-end">Sign out</button>
+								<?= form_close() ?>
 							</li>
 							<!--end::Menu Footer-->
 						</ul>

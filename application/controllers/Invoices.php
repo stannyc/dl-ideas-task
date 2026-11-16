@@ -9,4 +9,9 @@ class Invoices extends User_Controller
 	{
 		$this->render('invoices/index', array('title' => 'Invoices'));
 	}
+
+	public function detail($id)
+	{
+		$this->render('shared/invoice_detail', array('title' => 'Invoice Detail'));
+	}
 }
