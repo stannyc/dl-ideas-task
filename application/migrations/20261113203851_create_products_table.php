@@ -23,12 +23,12 @@ class Migration_create_products_table extends CI_Migration
 			'price' => array(
 				'type' 		=> 'DECIMAL',
 			),
-			'currency' => array(
+			'currency' => array( //Deprecated, Stripe can't process multi currency checkout, default currency will set in .env
 				'type' 		=> 'VARCHAR',
 				'constraint' => 10,
-				'default' 	=> 'SGD'
+				'default' 	=> 'sgd'
 			),
-			'is_active' => array(
+			'is_active' => array( 
 				'type' 		=> 'TINYINT',
 				'default' 	=> 0,
 			),

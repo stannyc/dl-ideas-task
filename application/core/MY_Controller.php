@@ -14,9 +14,11 @@ class MY_Controller extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->library('auth');
+		$this->load->library('cart_service');
 		$this->current_user = $this->auth->user();
 		$this->load->vars(array(
 			'current_user' => $this->current_user,
+			'pending_checkout' => $this->cart_service->count($this->current_user->id)
 		));
 	}
 
@@ -49,7 +51,7 @@ class Admin_Controller extends User_Controller
 	{
 		parent::__construct();
 		$this->layout = 'admin';
-		if (!$this->current_user->role == 'admin') {
+		if ($this->current_user->role !== 'admin') {
 			show_error('Forbidden', 403);
 		}
 	}

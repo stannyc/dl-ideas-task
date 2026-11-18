@@ -1,3 +1,6 @@
+<?php
+	
+?>
 <nav class="app-header navbar navbar-expand bg-body">
 	<!--begin::Container-->
 	<div class="container-fluid">
@@ -5,122 +8,22 @@
 				<div class="col-sm-6">
 					<h1 class="mb-0 fs-3"><?= $title ?></h1>
 				</div>
-		<!--begin::Navbar Search-->
-	<!-- 	<form
-			class="navbar-search d-none d-xl-block ms-3"
-			role="search"
-			action="./pages/search-results.html">
-			<label for="navbar-search-input" class="visually-hidden">Search</label>
-			<div class="navbar-search-field">
-				<input
-					type="search"
-					id="navbar-search-input"
-					name="q"
-					class="form-control"
-					placeholder="Search…"
-					autocomplete="off" />
-				<button class="navbar-search-submit" type="submit" aria-label="Submit search">
-					<i class="bi bi-search" aria-hidden="true"></i>
-				</button>
-			</div>
-		</form> -->
-		<!--end::Navbar Search-->
 
 		<!--begin::End Navbar Links-->
 		<ul class="navbar-nav ms-auto">
-			<!--begin::Search (small screens: the field above is hidden, so link to the search page)-->
-			<li class="nav-item d-xl-none">
-				<a class="nav-link" href="./pages/search-results.html" aria-label="Search">
-					<i class="bi bi-search" aria-hidden="true"></i>
-				</a>
-			</li>
-			<!--end::Search-->
 			<!--begin::Messages Dropdown Menu-->
 			<li class="nav-item dropdown">
 				<a
 					class="nav-link"
-					data-bs-toggle="dropdown"
-					href="#"
+					
+					href="/cart"
 					aria-label="Messages: 3 unread">
 					<i class="bi bi-cart4"></i>
-					<span class="navbar-badge badge text-bg-danger">3</span>
-				</a>
-				<div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-					<a href="#" class="dropdown-item">
-						<!--begin::Message-->
-						<div class="d-flex">
-							<div class="flex-shrink-0">
-								<img
-									src="./assets/img/user1-128x128.jpg"
-									alt=""
-									class="img-size-50 rounded-circle me-3" />
-							</div>
-							<div class="flex-grow-1">
-								<p class="dropdown-item-title">
-									Brad Diesel
-									<span class="float-end fs-7 text-danger"><i class="bi bi-star-fill"></i></span>
-								</p>
-								<p class="fs-7">Call me whenever you can...</p>
-								<p class="fs-7 text-secondary">
-									<i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
-								</p>
-							</div>
-						</div>
-						<!--end::Message-->
-					</a>
-					<div class="dropdown-divider"></div>
-					<a href="#" class="dropdown-item">
-						<!--begin::Message-->
-						<div class="d-flex">
-							<div class="flex-shrink-0">
-								<img
-									src="./assets/img/user8-128x128.jpg"
-									alt=""
-									class="img-size-50 rounded-circle me-3" />
-							</div>
-							<div class="flex-grow-1">
-								<p class="dropdown-item-title">
-									John Pierce
-									<span class="float-end fs-7 text-secondary">
-										<i class="bi bi-star-fill"></i>
-									</span>
-								</p>
-								<p class="fs-7">I got your message bro</p>
-								<p class="fs-7 text-secondary">
-									<i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
-								</p>
-							</div>
-						</div>
-						<!--end::Message-->
-					</a>
-					<div class="dropdown-divider"></div>
-					<a href="#" class="dropdown-item">
-						<!--begin::Message-->
-						<div class="d-flex">
-							<div class="flex-shrink-0">
-								<img
-									src="./assets/img/user3-128x128.jpg"
-									alt=""
-									class="img-size-50 rounded-circle me-3" />
-							</div>
-							<div class="flex-grow-1">
-								<p class="dropdown-item-title">
-									Nora Silvester
-									<span class="float-end fs-7 text-warning">
-										<i class="bi bi-star-fill"></i>
-									</span>
-								</p>
-								<p class="fs-7">The subject goes here</p>
-								<p class="fs-7 text-secondary">
-									<i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
-								</p>
-							</div>
-						</div>
-						<!--end::Message-->
-					</a>
-					<div class="dropdown-divider"></div>
-					<a href="#" class="dropdown-item dropdown-footer">Open Shoping Cart</a>
-				</div>
+					<?php if(!empty($pending_checkout)) { ?>
+					<span class="navbar-badge badge text-bg-danger"><?= $pending_checkout ?></span>
+					<?php } ?>
+
+				</a>				
 			</li>
 			<!--end::Messages Dropdown Menu-->
 
@@ -197,7 +100,7 @@
 					<span class="d-inline-flex align-items-center justify-content-center rounded-circle bg-secondary text-white img-size-32" style="height: 32px;">
 								<i class="bi bi-person-fill fs-4"></i>
 							</span>
-					<span class="d-none d-xl-inline">Alexander Pierce</span>
+					<span class="d-none d-xl-inline"><?= $current_user->name ?></span>
 				</a>
 				<ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
 					<!--begin::User Image-->
@@ -206,9 +109,9 @@
 								<i class="bi bi-person-fill fs-4"></i>
 							</span>
 						<p>
-							Alexander Pierce - Web Developer
-							<small>Member since Nov. 2023</small>
-						</p>
+									<?= $current_user->name ?>
+									
+								</p>
 					</li>
 					<!--end::User Image-->
 			

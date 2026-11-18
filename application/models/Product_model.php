@@ -22,18 +22,42 @@ class Product_model extends CI_Model
 
 	public function paginate(array $filters = array(), $per_page = 15, $page = 1)
 	{
-		$page   = max(1, (int) $page);
-		$offset = ($page - 1) * $per_page;
+		$per_page = max(1, min(100, (int) $per_page));
+		
+		$this->apply_filters($filters);
+		$total = (int) $this->db->count_all_results(self::TABLE);
 
+
+		$last_page = max(1, (int) ceil($total / $per_page));
+		
+		$page      = min(max(1, (int) $page), $last_page);
+		
+		$offset    = ($page - 1) * $per_page;
+
+		
 		$this->apply_filters($filters);
 
-		return $this->db
+		$items = $this->db
 			->select($this->public_columns)
 			->order_by('created_at', 'DESC')
 			->order_by('id', 'DESC')
 			->limit($per_page, $offset)
 			->get(self::TABLE)
 			->result();
+
+		return array(
+			'items'      => $items,
+			'pagination' => array(
+				'total'        => $total,
+				'per_page'     => $per_page,
+				'current_page' => $page,
+				'last_page'    => $last_page,
+				'from'         => $total ? $offset + 1 : 0,
+				'to'           => $offset + count($items),
+				'has_prev'     => $page > 1,
+				'has_next'     => $page < $last_page,
+			),
+		);
 	}
 
 
@@ -45,6 +69,12 @@ class Product_model extends CI_Model
 			$this->db->group_start()
 				->like('name', $filters['search'])
 				->or_like('description', $filters['search'])
+				->group_end();
+		}
+
+		if (!empty($filters['is_active'])) {
+			$this->db->group_start()
+				->where('is_active', (int) $filters['is_active'])
 				->group_end();
 		}
 	}

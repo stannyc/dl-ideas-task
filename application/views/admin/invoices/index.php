@@ -2,6 +2,6 @@
 
 <?php 
 
-$this->load->view('shared/invoice_table', array('base_uri' => $base_uri));
+$this->load->view('shared/invoice_table', array('invoices' => $invoices, 'pagination' => $pagination));
 
 ?>

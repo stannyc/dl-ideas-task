@@ -7,9 +7,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <div class="container-fluid">
 	<!--begin::Row-->
 	<div class="row  g-4 mb-4">
-		<?php for ($i = 1; $i <= 10; $i++) {
+		<?php foreach($products as $product) {
 
-			$this->load->view('shared/product_tile', array('price' => $i))
+			$this->load->view('shared/product_tile', array('product' => $product))
 
 		?>
 			<!-- <div class="col">
@@ -34,40 +34,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		<?php } ?>
 	</div>
 	<!--end::Row-->
-	<div class="row">
-		<div class="col">
-			<div class="card-footer clearfix">
-				<div class="float-start pt-1 fs-7 text-body-secondary">
-					Showing 1 to 9 of 42 users
-				</div>
-				<ul class="pagination pagination-sm m-0 float-end">
-					<li class="page-item disabled">
-						<a class="page-link" href="#" aria-label="Previous"> &laquo; </a>
-					</li>
-					<li class="page-item active">
-						<a class="page-link" href="#">1</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">2</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">3</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">4</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">5</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#" aria-label="Next"> &raquo; </a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
 
 
+	<?php $this->load->view('partials/pagination', array('pagination' => $pagination)) ?>
 
 
 </div>
