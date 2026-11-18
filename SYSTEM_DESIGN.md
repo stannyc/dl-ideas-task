@@ -8,7 +8,7 @@ You have inherited a production application built on a PHP 5 framework with a My
 
 
 ### Migration Strategy
-For migration strategy I will Strangler Fig strategy a to allow replacement of the old system gradually piece by piece and keep the existing customers able to continue using the old system and eventually both in paralael and then fully migrated to new system. The reason for choosing this strategy is because the migration process itself is gradual for example by feature, the process of development can be started from the least critical part of the system allowing all team members to also familiarize themself with the new system gradually and slowly moving towards the more critical part of the system where the experience on introducing new feature on the modern new system can be a valuable addaptation process for the development team as the migration sub tasks move towards more and more critical part.
+For migration strategy I will lean toward Strangler Fig strategy a to allow replacement of the old system gradually piece by piece and keep the existing customers able to continue using the old system and eventually both in paralael and finally migrated to new system. The reason for choosing this strategy is because the migration process itself is gradual for example by feature, the process of development can be started from the least critical part of the system allowing all team members to also familiarize themself with the new system gradually and slowly moving towards the more critical part of the system where the experience on introducing new feature on the modern new system can be a valuable addaptation process for the development team as the migration sub tasks move towards more and more critical part.
 
 ---
 
