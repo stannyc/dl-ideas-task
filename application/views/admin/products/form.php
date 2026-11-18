@@ -35,7 +35,7 @@ $invalid = function ($field) {
 			<div class="mb-3">
 				<label for="descriptionInput" class="form-label">Description</label>
 				<!-- <input type="password" class="form-control" id="descriptionInput" /> -->
-				<textarea class="form-control<?= $invalid('description') ?>" id="descriptionInput" name="description"><?= trim($product->description) ?? '' ?></textarea>
+				<textarea class="form-control<?= $invalid('description') ?>" id="descriptionInput" name="description"><?= $is_edit ? trim($product->description) : '' ?></textarea>
 				<?= form_error('description', '<div class="invalid-feedback">', '</div>') ?>
 			</div>
 			<div class="mb-3">
@@ -47,9 +47,9 @@ $invalid = function ($field) {
 						name="price"
 						class="form-control<?= $invalid('price') ?>"
 						aria-label="Amount (to the nearest dollar)"
-						value="<?= html_escape(set_value('price', $product->price ?? '')) ?>" />
+						value="<?= $is_edit ? html_escape(set_value('price', $product->price/100 ?? '')) : '' ?>" />
 
-					<span class="input-group-text">.00</span>
+					<!-- <span class="input-group-text">.00</span> -->
 					<?= form_error('price', '<div class="invalid-feedback">', '</div>') ?>
 				</div>
 			</div>

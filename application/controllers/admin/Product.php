@@ -2,7 +2,6 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 
-
 class Product extends Admin_Controller
 {
 
@@ -15,7 +14,7 @@ class Product extends Admin_Controller
 
 	public function index()
 	{
-		$data = $this->product_model->paginate();
+		$data = $this->product_model->paginate([], 12);
 		$products = $data['items'];
 		$pagination = $data['pagination'];
 		$this->render('admin/products/index', array('title' => 'Product List', 'products' => $products, 'pagination' => $pagination));
@@ -77,7 +76,7 @@ class Product extends Admin_Controller
 		$data = array(
 			'name'      => $this->input->post('name'),
 			'description'     => $this->input->post('description'),
-			'price'      => $this->input->post('price'),
+			'price'      => (float) $this->input->post('price') * 100,
 			'is_active' => 1, //$this->input->post('is_active') ? 1 : 0,			
 		);
 

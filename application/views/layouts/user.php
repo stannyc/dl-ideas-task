@@ -11,7 +11,7 @@ $this->load->view('partials/head')
 	<!--begin::App Wrapper-->
 	<div class="app-wrapper">
 		<!--begin::Header-->
-		<?php $this->load->view('partials/user/navbar') ?>
+		<?php $this->load->view('partials/user/navbar', array('pending_checkout' => $pending_checkout)) ?>
 		<!--end::Header-->
 		<!--begin::Sidebar-->
 		<?php $this->load->view('partials/user/sidebar'); ?>
@@ -71,6 +71,9 @@ $this->load->view('partials/head')
 	<?php
 	$this->load->view('partials/scripts')
 	?>
+	<?php
+	$this->load->view('partials/flash')
+	?>	
 	<!--end::OverlayScrollbars Configure-->
 
 	<!--begin::Color Mode Toggle-->

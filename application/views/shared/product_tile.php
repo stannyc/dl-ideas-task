@@ -1,5 +1,7 @@
 <?php 
-
+$user = $current_user;
+$role = $user->role;
+$is_admin = $role === 'admin';
 $is_active = $product->is_active == 1;
 
 ?>
@@ -9,12 +11,17 @@ $is_active = $product->is_active == 1;
 		<div class="card-body">
 			<div class="d-flex justify-content-between align-items-center mb-2">
 				<h5 class="card-title mb-0"><?= $product->name ?></h5>
-				<span class="fw-bold text-primary fs-5">$<?= $product->price ?></span>
+				<span class="fw-bold text-primary fs-5">$<?=  $product->price / 100 ?></span>
 			</div>
 			<p class="card-text text-muted small"><?= $product->description ?></p>
-			<?php if (false) { ?>
-				<a href="#" class="btn btn-primary w-100">Add to Cart</a>
-			<?php } ?>
+			<?php if (!$is_admin) { ?>
+			<?= form_open('cart/add') ?>
+				<input type="hidden" name="product_id" value="<?= $product->id ?>" />
+				<input type="hidden" name="quantity" value="1" />
+				<button href="#" class="btn btn-primary w-100">Add to Cart</button>
+			<?= form_close() ?>
+			<?php } else { ?>
+			
 			<div class="d-flex gap-2 justify-content-end">
 				<a class="btn btn-primary"
 					href="/admin/product/form/<?= $product->id ?>">Update</a>
@@ -29,9 +36,15 @@ $is_active = $product->is_active == 1;
 					data-action="<?= site_url('admin/product/toggle_active/' . $product->id) ?>"
 				><?= $is_active ? 'Deactivete' : 'Activate' ?></button>
 			</div>
+
+			<?php } ?>
 		</div>
 	</div>
 </div>
+
+
+<!-- add to cart modal -->
+
 
 
 <!-- delete confirm modal -->

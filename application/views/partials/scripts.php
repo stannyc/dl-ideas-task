@@ -1,3 +1,4 @@
+<!-- Script portion of AdminLTE example page -->
 <script
 		src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.16.0/browser/overlayscrollbars.browser.es6.min.js"
 		crossorigin="anonymous"></script>

@@ -1,6 +1,16 @@
+<?php
+
+	$receiptUrl = $current_user->role === 'admin' ? '/admin/receipts/detail/'.$invoice->receipt_id : '/receipts/detail/'.$invoice->receipt_id
+
+?>
 <div class="container-fluid">
 	<!-- Action bar (hidden on print) -->
 	<div class="d-flex justify-content-end gap-2 mb-3 d-print-none">
+		<?php if(!empty($invoice->receipt_id)) { ?>
+		<a href="<?= $receiptUrl ?>" class="btn btn-outline-secondary">
+			<i class="bi bi-receipt me-1" aria-hidden="true"></i>Show Receipt
+		</a>
+		<?php } ?>		
 		<button class="btn btn-outline-secondary" onclick="window.print()" type="button">
 			<i class="bi bi-printer me-1" aria-hidden="true"></i>Print
 		</button>
@@ -29,7 +39,7 @@
 					<p class="text-secondary mb-0">
 						<span class="fw-semibold">#</span>INV-2026-00428
 					</p>
-					<span class="badge text-bg-success mt-1">Paid</span>
+					<span class="badge mt-1 <?= $invoice->status == 'paid' ? 'text-bg-success' : 'text-bg-warning' ?>"><?= $invoice->status ?></span>
 				</div>
 			</div>
 
@@ -37,7 +47,7 @@
 			<div class="row mb-4">
 				<div class="col-sm-6">
 					<p class="text-secondary small mb-1">Billed to</p>
-					<p class="mb-0 fw-semibold">Acme Corporation</p>
+					<p class="mb-0 fw-semibold"><?= $invoice->user_name ?></p>
 					<p class="text-secondary small mb-0">
 						Attn: Jane Doe<br />
 						1234 Market Street<br />
@@ -46,9 +56,14 @@
 				</div>
 				<div class="col-sm-6 text-sm-end">
 					<p class="text-secondary small mb-1">Issue date</p>
-					<p class="mb-2">May 18, 2026</p>
+					<p class="mb-2"><?php $issued = new DateTimeImmutable($invoice->issued_at); echo $issued->format('F jS Y')  ?></p>
 					<p class="text-secondary small mb-1">Due date</p>
-					<p class="mb-0">June 1, 2026</p>
+					<p class="mb-0">
+						<?php 
+						$issued = new DateTimeImmutable($invoice->issued_at); 
+						$due = $issued->modify("+14 days");
+						echo $due->format('F jS Y')  ?>
+					</p>
 				</div>
 			</div>
 
@@ -64,33 +79,16 @@
 						</tr>
 					</thead>
 					<tbody>
+						<?php foreach($items as $item) { ?>
 						<tr>
 							<td>
-								<p class="mb-0 fw-semibold">Pro plan subscription</p>
-								<small class="text-secondary">May 18 - Jun 18, 2026</small>
+								<p class="mb-0 fw-semibold"><?= $item->product_name ?></p>								
 							</td>
-							<td class="text-end">1</td>
-							<td class="text-end">$29.00</td>
-							<td class="text-end">$29.00</td>
+							<td class="text-end"><?= $item->quantity ?></td>
+							<td class="text-end">$<?= $item->unit_price/100 ?></td>
+							<td class="text-end">$<?= $item->line_total/100 ?></td>
 						</tr>
-						<tr>
-							<td>
-								<p class="mb-0 fw-semibold">Additional seats</p>
-								<small class="text-secondary">Pro-rated for current period</small>
-							</td>
-							<td class="text-end">3</td>
-							<td class="text-end">$12.50</td>
-							<td class="text-end">$37.50</td>
-						</tr>
-						<tr>
-							<td>
-								<p class="mb-0 fw-semibold">SMS notifications add-on</p>
-								<small class="text-secondary">1,000 messages</small>
-							</td>
-							<td class="text-end">1</td>
-							<td class="text-end">$5.00</td>
-							<td class="text-end">$5.00</td>
-						</tr>
+						<?php } ?>
 					</tbody>
 				</table>
 			</div>
@@ -100,11 +98,11 @@
 				<div class="col-md-5 col-lg-4">
 					<dl class="row mb-0">
 						<dt class="col-7 text-secondary fw-normal">Subtotal</dt>
-						<dd class="col-5 text-end mb-2">$71.50</dd>
-						<dt class="col-7 text-secondary fw-normal">Tax (8.25%)</dt>
-						<dd class="col-5 text-end mb-2">$5.90</dd>
+						<dd class="col-5 text-end mb-2">$<?= number_format($invoice->amount/100, 2) ?></dd>
+						<dt class="col-7 text-secondary fw-normal">Tax (0%)</dt>
+						<dd class="col-5 text-end mb-2">$0</dd>
 						<dt class="col-7 fw-semibold border-top pt-2">Total due</dt>
-						<dd class="col-5 text-end fw-semibold border-top pt-2 mb-0">$77.40 USD</dd>
+						<dd class="col-5 text-end fw-semibold border-top pt-2 mb-0">$<?= number_format($invoice->amount/100, 2) ?></dd>
 					</dl>
 				</div>
 			</div>

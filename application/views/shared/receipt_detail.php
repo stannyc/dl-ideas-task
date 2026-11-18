@@ -1,7 +1,12 @@
+<?php
+
+	$invoiceUrl = $current_user->role === 'admin' ? '/admin/invoices/detail/'.$receipt->invoice_id : '/invoices/detail/'.$receipt->invoice_id
+
+?>
 <div class="container-fluid">
 	<!-- Action bar (hidden on print) -->
 	<div class="d-flex justify-content-end gap-2 mb-3 d-print-none">
-		<a href="#" class="btn btn-outline-secondary">
+		<a href="<?= $invoiceUrl ?>" class="btn btn-outline-secondary">
 			<i class="bi bi-file-earmark-text me-1" aria-hidden="true"></i>View invoice
 		</a>
 		<button class="btn btn-outline-secondary" onclick="window.print()" type="button">
@@ -46,82 +51,27 @@
 					<p class="text-secondary small mb-1">Payment date</p>
 					<p class="mb-2">May 18, 2026, 14:32</p>
 					<p class="text-secondary small mb-1">Payment method</p>
-					<p class="mb-2"><i class="bi bi-credit-card me-1" aria-hidden="true"></i>Visa •••• 4242</p>
-					<p class="text-secondary small mb-1">For invoice</p>
-					<p class="mb-0"><a href="#">INV-2026-00428</a></p>
+					<p class="mb-2"><i class="bi bi-credit-card me-1" aria-hidden="true"></i><?= $receipt->payment_method ?></p>
+					
 				</div>
 			</div>
 
 			<!-- Amount paid highlight -->
 			<div class="rounded bg-body-tertiary border p-3 mb-4 d-flex justify-content-between align-items-center">
 				<span class="text-secondary">Amount paid</span>
-				<span class="h3 mb-0 fw-semibold text-success">$77.40 USD</span>
+				<span class="h3 mb-0 fw-semibold text-success">$<?= number_format($receipt->amount_paid/100, 2) ?></span>
 			</div>
 
-			<!-- Items -->
-			<div class="table-responsive mb-3">
-				<table class="table align-middle mb-0">
-					<thead>
-						<tr>
-							<th class="border-top-0">Description</th>
-							<th class="border-top-0 text-end" style="width: 6rem">Qty</th>
-							<th class="border-top-0 text-end" style="width: 9rem">Unit price</th>
-							<th class="border-top-0 text-end" style="width: 9rem">Amount</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								<p class="mb-0 fw-semibold">Pro plan subscription</p>
-								<small class="text-secondary">May 18 - Jun 18, 2026</small>
-							</td>
-							<td class="text-end">1</td>
-							<td class="text-end">$29.00</td>
-							<td class="text-end">$29.00</td>
-						</tr>
-						<tr>
-							<td>
-								<p class="mb-0 fw-semibold">Additional seats</p>
-								<small class="text-secondary">Pro-rated for current period</small>
-							</td>
-							<td class="text-end">3</td>
-							<td class="text-end">$12.50</td>
-							<td class="text-end">$37.50</td>
-						</tr>
-						<tr>
-							<td>
-								<p class="mb-0 fw-semibold">SMS notifications add-on</p>
-								<small class="text-secondary">1,000 messages</small>
-							</td>
-							<td class="text-end">1</td>
-							<td class="text-end">$5.00</td>
-							<td class="text-end">$5.00</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
+	
 
-			<!-- Totals -->
-			<div class="row justify-content-end">
-				<div class="col-md-5 col-lg-4">
-					<dl class="row mb-0">
-						<dt class="col-7 text-secondary fw-normal">Subtotal</dt>
-						<dd class="col-5 text-end mb-2">$71.50</dd>
-						<dt class="col-7 text-secondary fw-normal">Tax (8.25%)</dt>
-						<dd class="col-5 text-end mb-2">$5.90</dd>
-						<dt class="col-7 fw-semibold border-top pt-2">Amount paid</dt>
-						<dd class="col-5 text-end fw-semibold border-top pt-2 mb-2">$77.40 USD</dd>
-						<dt class="col-7 text-secondary fw-normal">Balance due</dt>
-						<dd class="col-5 text-end mb-0">$0.00</dd>
-					</dl>
-				</div>
-			</div>
 
-			<!-- Admin-only: payment reference (wrap in <?php if (! empty($show_internal)): ?> … <?php endif; ?>) -->
+
+			<?php if($current_user->role === 'admin') { ?>
 			<div class="mt-4 p-3 border rounded small d-print-none">
-				<p class="text-secondary mb-1">Internal reference</p>
-				<p class="mb-0 font-monospace">Stripe PaymentIntent: pi_3PQx1a2b3c4d5e6f</p>
+				<p class="text-secondary mb-1">Reference</p>
+				<p class="mb-0 font-monospace">Stripe PaymentIntent: <?= $receipt->stripe_payment_intent_id ?></p>
 			</div>
+			<?php } ?>
 
 			<!-- Footer note -->
 			<hr class="my-4" />

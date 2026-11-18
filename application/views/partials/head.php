@@ -1,3 +1,4 @@
+<!-- Head section of AdminLTE example page -->
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>DLIdeas Test</title>

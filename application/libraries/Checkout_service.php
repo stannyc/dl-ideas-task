@@ -253,7 +253,7 @@ class Checkout_service
 
 			if ($charge && isset($charge->payment_method_details->card)) {
 				$card = $charge->payment_method_details->card;
-				return ucfirst($card->brand) . ' •••• ' . $card->last4;
+				return ucfirst($card->brand) . '****' . $card->last4;
 			}
 			if ($charge && isset($charge->payment_method_details->type)) {
 				return ucfirst(str_replace('_', ' ', $charge->payment_method_details->type));

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-//CLI only seeder
+//CLI only seeder for initial admin account
 class Seed extends CI_Controller
 {
 	public function __construct()
